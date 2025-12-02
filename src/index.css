@@ -23,7 +23,6 @@
     top: 100%;
     left: 0;
     position: absolute;
-    background: orange;
     width: 100%;
     height: 100%;
     border-radius: 50% 50% 0px 0px;
@@ -33,4 +32,56 @@
     top: 0;
     border-radius: 0px;
 }
+
+/* Custom orange slider */
+.custom-range {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Track */
+.custom-range::-webkit-slider-runnable-track {
+  height: 8px;
+  background: rgb(81, 81, 81);
+  border-radius: 5px;
+}
+
+/* Thumb */
+.custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #ffa500;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px; /* centers thumb on track */
+}
+
+
+/* Base */
+.only-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+
+.only-thumb::-webkit-slider-runnable-track {
+  height: 8px;
+  background: transparent;   
+}
+
+
+.only-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #ffa500;       
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px; 
+}
+
 
