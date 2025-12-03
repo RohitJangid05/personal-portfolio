@@ -8,10 +8,10 @@ const NavBar = () => {
     let { pathname } = useLocation()
     return (
         <nav
-            className={`w-full flex justify-between items-center p-3 fixed z-90 ${isDark ? "bg-black text-white" : "bg-white text-black"
+            className={`w-full flex justify-between items-center px-10 p-3 fixed z-90 ${isDark ? "bg-black text-white" : "bg-white text-black"
                 }`}
         >
-            <Link to="/" className='text-5xl font-bold uppercase'>Rohit</Link>
+            <Link to="/"><img className='w-[3vw]' src={`${isDark?"/images/logo-dark.png":"/images/logo-light.png"}`} alt="" /></Link>
             <div className='flex gap-5'>
                 {pathname == "/" ?
                     (<>

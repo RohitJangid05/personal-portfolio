@@ -4,7 +4,7 @@ export const MyContext = createContext();
 
 
 export const AppContext = ({ children }) => {
-    let [isDark, setIsDark] = useState(JSON.parse(localStorage.getItem("theme")) ?? true)
+    let [isDark, setIsDark] = useState(JSON.parse(localStorage.getItem("theme")) ?? false)
 
     useEffect(() => {
         localStorage.setItem("theme", JSON.stringify(isDark));
