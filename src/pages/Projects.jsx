@@ -5,6 +5,7 @@ const Projects = () => {
   return (
     <>
      <AnimatedStair/>
+     <div className='h-screen w-full'></div>
     </>
   )
 }

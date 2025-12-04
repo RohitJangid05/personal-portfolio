@@ -1,8 +1,10 @@
 import { useRef, useState, useEffect } from "react";
 import Typed from 'typed.js';
+import Particles from '../components/Particles';
+import Contact from "./Contact";
 
 const Home = () => {
-
+const [showContact, setShowContact] = useState(false);
    useEffect(() => {
         const options = {
             strings: ["Web Developer", "Frontend Developer", "Full Stack Developer", "React.js Developer", "Javascript Developer"],
@@ -74,7 +76,20 @@ const Home = () => {
   };
 
   return (
-    <div className="w-full h-screen flex relative">
+    <>
+    <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
+       <Particles
+          particleColors={['#ffffff', '#ffffff']}
+          particleCount={200}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+    </div>
+    <div className="bg-transparent w-full h-screen flex absolute top-0">
       <div className="w-1/2 h-full flex justify-center items-center">
         <div
           ref={imageDivRef}
@@ -100,7 +115,7 @@ const Home = () => {
         <>
           <h3 className="text-[2.5vw]">I'm</h3>
           <h1 className="text-[5vw] leading-[7vw]">Rohit Sampatlal Jangid</h1>
-          <h2 className="text-[3vw]"><span id="text-load" className='ml-3 text-[#ffa500]'></span></h2>
+          <h2 className="text-[3vw]"><span id="text-load" className=' text-[#ffa500]'></span></h2>
         </>
         <div className="flex gap-5 mt-5 p-5">
           <a
@@ -110,13 +125,26 @@ const Home = () => {
             className="relative overflow-hidden text-2xl w-full cursor-pointer px-7 py-2 border-2 rounded-full text-center btn-hover">
             <span className="relative z-10">Resume</span>
           </a>
-          <a
+          <button
+            onClick={() => setShowContact(!showContact)} 
             className="relative overflow-hidden text-2xl w-full cursor-pointer px-7 py-2 border-2 rounded-full text-center btn-hover">
             <span className="relative z-10">Contact</span>
-          </a>
+          </button>
         </div>
       </div>
     </div>
+    <Contact
+      style={{
+        position: "absolute",
+        top: showContact ? "0" : "-100vh",
+        opacity: showContact ? 1 : 0,
+        transition: "all 0.5s ease",
+        left: 0,
+        right: 0,
+      }}
+      onClose={() => setShowContact(false)}
+    />
+    </>
   );
 };
 

@@ -8,20 +8,21 @@ const NavBar = () => {
     let { pathname } = useLocation()
     return (
         <nav
-            className={`w-full flex justify-between items-center px-10 p-3 fixed z-90 ${isDark ? "bg-black text-white" : "bg-white text-black"
-                }`}
+            className={`bg-transparent w-full flex justify-between items-center px-10 p-3 fixed z-90 ${isDark ? "text-white" : " text-black"}`}
         >
-            <Link to="/"><img className='w-[3vw]' src={`${isDark?"/images/logo-dark.png":"/images/logo-light.png"}`} alt="" /></Link>
+            <Link to="/">
+                <img className='w-[3vw]' src={`${isDark ? "/images/logo-dark.png" : "/images/logo-light.png"}`} alt="" />
+            </Link>
             <div className='flex gap-5'>
-                {pathname == "/" ?
-                    (<>
-                        <Link to='projects' className='text-3xl font-semibold'>Projects</Link>
-                        <Link to='/about' className='text-3xl font-semibold'>About</Link>
-                       <NavButton/>
-                    </>)
-                    :
-                    (<NavButton/>)}
-
+                <>
+                    {pathname !== "/about" && (
+                        <Link to="/about" className="text-3xl font-semibold">About</Link>
+                    )}
+                    {pathname !== "/projects" && (
+                        <Link to="/projects" className="text-3xl font-semibold">Projects</Link>
+                    )}
+                    <NavButton />
+                </>
             </div>
         </nav>
     )

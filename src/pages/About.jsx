@@ -9,12 +9,13 @@ import { FaCss3Alt } from "react-icons/fa6";
 import { RiJavascriptFill } from "react-icons/ri";
 import { SiExpress, SiMongodb } from "react-icons/si";
 import Title from '../components/Title'
+import Particles from '../components/Particles';
 
 
 const About = () => {
   gsap.registerPlugin(ScrollTrigger)
 
-  let [eduLoader, setEduLoader] = useState(-12.5)
+  let [eduLoader, setEduLoader] = useState(-11.8)
   let containerRef = useRef(null)
   let thumbRef = useRef(null)
 
@@ -110,8 +111,8 @@ const About = () => {
       end: "bottom 50%",
       scrub: 1,
       onUpdate: (self) => {
-        const min = -12.5;
-        const max = 87.5;
+        const min = -11.8;
+        const max = 86.8;
         const mapped = min + self.progress * (max - min);
         setEduLoader(mapped);
       },
@@ -124,6 +125,7 @@ const About = () => {
   return (
     <>
       <AnimatedStair />
+
       <div className='p-5'>
         <div ref={imageContainerRef} className='absolute w-[20vw] h-[50vh] top-10 left-100 rounded-3xl overflow-hidden'>
           <img ref={imageRef} className='w-full h-full object-cover' src="/images/image1.jpg" alt="Animating images" />
@@ -163,8 +165,8 @@ const About = () => {
           </div>
           <div className='w-full'>
             <div className='h-full py-10'>
-              {educationData.map((data) => {
-                return (<div className={`flex ${data.side=="right"?"justify-end":""}`}>
+              {educationData.map((data, idx) => {
+                return (<div key={idx} className={`flex ${data.side == "right" ? "justify-end" : ""}`}>
                   <div className='w-1/2 px-5'>
                     <h1 className='text-[1.5vw] text-[#ffa500] flex justify-between'>
                       <span>{data.title}</span>
@@ -181,7 +183,20 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className='h-screen'></div>
+
+
+      <div style={{ width: '100%', height: '600px', position: 'relative' }}>
+        <Particles
+          particleColors={['#ffffff', '#ffffff']}
+          particleCount={200}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+      </div>
     </>
   )
 }

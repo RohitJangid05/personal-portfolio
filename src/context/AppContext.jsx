@@ -5,6 +5,7 @@ export const MyContext = createContext();
 
 export const AppContext = ({ children }) => {
     let [isDark, setIsDark] = useState(JSON.parse(localStorage.getItem("theme")) ?? false)
+    const [sliderValue, setSliderValue] = useState(0);
 
     useEffect(() => {
         localStorage.setItem("theme", JSON.stringify(isDark));
@@ -12,7 +13,7 @@ export const AppContext = ({ children }) => {
 
 
     return (
-        <MyContext.Provider value={{ isDark, setIsDark }}>
+        <MyContext.Provider value={{ isDark, setIsDark, sliderValue, setSliderValue }}>
             {children}
         </MyContext.Provider>
     );
