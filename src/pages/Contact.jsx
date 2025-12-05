@@ -49,7 +49,7 @@ const Contact = ({ style, onClose }) => {
             className={`w-full min-h-screen flex items-center justify-center 
         ${isDark ? "bg-black/80" : "bg-gray-700/60"} backdrop-blur-md z-50`}>
             <div
-                className={`relative p-10 rounded-2xl shadow-lg max-w-lg w-full transition-all
+                className={`relative p-10 rounded-lg shadow-lg max-w-lg w-full transition-all
             ${isDark ? "bg-white/10 text-white" : "bg-white text-black"}`}>
                 <button
                     onClick={onClose}
